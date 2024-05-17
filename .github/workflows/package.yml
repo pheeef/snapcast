@@ -156,12 +156,16 @@ jobs:
         image:
           - 39
           - 40
+        os:
+          - ubuntu-latest
+          - self-hosted-rpi4
         include:
           - os: ubuntu-latest
             arch: "x86_64"
           - os: self-hosted-rpi4
             arch: "armv7hl"
 
+    runs-on: ${{ matrix.os }}
     name: rpm (${{ matrix.arch }}, fedora ${{ matrix.image }})
 
     container:
